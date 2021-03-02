@@ -1,0 +1,38 @@
+
+#lang scheme
+
+;Question #2
+(define TOL 1e-6)
+
+(define (newtonRhap x f fx)
+  (let ((xn (- x (/ (f x) (fx x)))))
+    (cond ((< (abs (- xn x)) TOL) xn)
+        (else (newtonRhap xn f fx))
+        )
+    )
+  )
+
+(newtonRhap 0.1 sin cos)
+
+(newtonRhap 2.0 (lambda (x) (- (* x x) x 6))
+(lambda (x) (- (* 2 x) 1)))
+
+(newtonRhap -20.0 (lambda (x) (- (* x x) x 6))
+(lambda (x) (- (* 2 x) 1)))
+
+;question #3
+(define square (lambda (x) (* x x)))
+
+(define (p_cos x)
+  
+    (let ((n 1))
+      (let ((adding (- 1 (/ (* 4 (square x)) (* (square pi) (square (- (* 2 n) 1)))))))
+        (addedCos x (+ 1 n) adding 1)
+        )))
+
+(define (addedCos x n toadd prod)
+  (let ((addfunc (- 1 (/ (* 4 (square x)) (* (square pi) (square (- (* 2 n) 1)))))))
+  (cond ((< (abs(- toadd addfunc)) TOL) (* prod toadd))
+        (else (addedCos x (+ 1 n) addfunc (* prod toadd))
+      ))
+  ))
