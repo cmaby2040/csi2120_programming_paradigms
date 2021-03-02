@@ -1,0 +1,5 @@
+#lang racket
+(define v (vector 2 'a (+ 1 2)))
+(let (v2 (vector 2 3 5)))
+(display v)
+  (display v2)
