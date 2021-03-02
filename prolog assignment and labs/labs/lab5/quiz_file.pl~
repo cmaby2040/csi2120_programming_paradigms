@@ -1,0 +1,5 @@
+zeroNodes(nil, nil):-!.
+
+zeroNodes(t(0,L,R),T) :- zeroNodes(L,T), zeroNodes(R,T), !.
+
+zeroNodes(t(Key,L,R),T) :- zeroNodes(L,T),zeroNodes(R,T).
