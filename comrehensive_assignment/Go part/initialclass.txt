@@ -1,0 +1,5 @@
+COSTS A B C SUPPLY
+Source1 - 10 20 150
+Source2 - - 40 175
+Source3 40 10 - 275
+DEMAND 200 100 300
